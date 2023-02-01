@@ -1,0 +1,35 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="Ontwikkeling/Component Ontwikkeling"/>
+
+# Component Ontwikkeling
+
+## Opzet
+
+De code van de web-componenten bibliotheek zit in [GitHub](https://github.com/milieuinfo/uigov-web-components).
+Het is een monorepo, opgezet met [Nx](https://nx.dev/). Nx (wat staat voor Nrwl Extensions) is een 'Smart, Fast and
+Extensible Build System' dat open-source ontwikkeld wordt door [Nrwl](https://github.com/nrwl), een start-up die
+groeide uit Google.
+
+Naast de web-componenten bibliotheek zijn er nog [andere repositories](/story/basis-repositories--page).
+
+Ontwikkeling gebeurd [branch-based](/story/ontwikkeling-git-branching-strategie--page) waarbij het
+[release proces](/story/ontwikkeling-build-release--page) volledig geautomatiseerd is.
+
+## Code Formattering
+
+Code formattering gebeurd m.b.v. Prettier, de configuratie bevindt zich op root niveau in het `.prettierrc` bestand.
+
+In <ins>IntelliJ</ins> kan je Prettier configureren door te gaan naar `Preferences > Languages & Frameworks > Prettier` <br/>
+ -> zorg dat `Prettier package` verwijst naar de juiste `node_modules/prettier` folder <br/>
+ -> vink beide vinkjes aan zodat Prettier wordt toegepast zowel bij expliciet formatteren als bij bewaren
+
+
+## Code Richtlijnen
+
+TODO
+
+## Bijdrages Door Andere Teams - Conventies
+
+TODO
+
