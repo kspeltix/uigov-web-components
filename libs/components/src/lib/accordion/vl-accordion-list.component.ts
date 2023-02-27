@@ -3,7 +3,7 @@ import '@govflanders-v14/vl-ui-accordion/dist/js/accordion.js';
 import styles from './style/vl-accordion.scss';
 import 'reflect-metadata';
 import { html, LitElement, TemplateResult, css, unsafeCSS } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 
 /**
  * VlAccordionList
@@ -32,20 +32,34 @@ export class VlAccordionListComponent extends LitElement {
         ];
     }
 
+    firstUpdated() {
+        const observer = new MutationObserver(() => {
+            this.requestUpdate();
+        });
+        observer.observe(this, { subtree: true, childList: true });
+    }
+
+    //TODO: rerender on children change.
     protected render(): TemplateResult {
+        this.children;
         return html`
-            <ul class="vl-accordion-list ${this.bordered === true ? 'vl-accordion-list--bordered' : ''}">
+            <ul class="vl-accordion-list ${this.bordered ? 'vl-accordion-list--bordered' : ''}">
                 ${[...Array.from(this.children)].map((child, index) => {
                     const name = `item-${index}`;
                     child.setAttribute('slot', name);
                     return html`
-                        <li class="vl-accordion-list__item">
-                            <slot name="${name}"> </slot>
+                        <li id="${name}" class="vl-accordion-list__item">
+                            <slot name="${name}" @slotchange="${this.onSlotChange}"> </slot>
                         </li>
                     `;
                 })}
             </ul>
         `;
+    }
+
+    // Renders on delete of pre-existing, but not when adding
+    onSlotChange() {
+        this.requestUpdate();
     }
 }
 

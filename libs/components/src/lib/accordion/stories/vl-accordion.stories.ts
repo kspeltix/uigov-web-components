@@ -31,12 +31,12 @@ const Template: StoryFn<typeof accordionArgs> = ({
 `;
 
 const AccordionListTemplate: StoryFn<any> = () => html`
-    <vl-accordion-list data-vl-bordered="true">
+    <vl-accordion-list data-vl-bordered>
         <vl-accordion data-vl-toggle-text="Accordion nummer 1"> Inhoud accordion nummer 1 </vl-accordion>
         <vl-accordion data-vl-toggle-text="Accordion nummer 2"> Inhoud accordion nummer 2 </vl-accordion>
         <vl-accordion data-vl-toggle-text="Accordion nummer 3 (nested)">
             Inhoud accordion nummer 3
-            <vl-accordion-list data-vl-bordered="true">
+            <vl-accordion-list data-vl-bordered>
                 <vl-accordion data-vl-toggle-text="Accordion nummer 3.1"> Inhoud accordion nummer 3.1 </vl-accordion>
                 <vl-accordion data-vl-toggle-text="Accordion nummer 3.2"> Inhoud accordion nummer 3.2 </vl-accordion>
             </vl-accordion-list>
