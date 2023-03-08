@@ -32,8 +32,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147055.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "1"
+                    featureCharacter: 'B',
+                    zIndex: '1',
                 },
             },
             {
@@ -43,8 +43,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147075.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "2"
+                    featureCharacter: 'B',
+                    zIndex: '2',
                 },
             },
             {
@@ -54,8 +54,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147095.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "3"
+                    featureCharacter: 'B',
+                    zIndex: '3',
                 },
             },
             {
@@ -65,8 +65,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147105.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "4"
+                    featureCharacter: 'B',
+                    zIndex: '4',
                 },
             },
             {
@@ -76,8 +76,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147106.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "5"
+                    featureCharacter: 'B',
+                    zIndex: '5',
                 },
             },
         ],
@@ -116,7 +116,7 @@ export const legendMultiFeaturesLayer = (props) => {
                 data-vl-size="10"
                 data-vl-border-color="#000"
                 data-vl-border-size="1"
-                data-vl-text-feature-attribute-name="inzageGegevensTypeKarakterEnum"
+                data-vl-text-feature-attribute-name="featureCharacter"
                 data-vl-text-size="bold 14px"
             ></vl-map-layer-circle-style>
             <vl-map-measure-action></vl-map-measure-action>
