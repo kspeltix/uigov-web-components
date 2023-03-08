@@ -213,7 +213,7 @@ export class VlMapLayerStyle extends BaseElementOfType(HTMLElement) {
     }
 
     get featureZIndex() {
-        return (feature) => feature.get("zIndex");
+        return (feature) => (feature && feature.get ? feature.get('zIndex') : 0);
     }
 
     _hasUniqueStyles(features) {

@@ -32,8 +32,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147055.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "1"
+                    featureCharacter: 'O',
+                    zIndex: '1',
                 },
             },
             {
@@ -43,8 +43,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147075.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "2"
+                    featureCharacter: 'O',
+                    zIndex: '2',
                 },
             },
             {
@@ -54,8 +54,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147095.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "3"
+                    featureCharacter: 'O',
+                    zIndex: '3',
                 },
             },
             {
@@ -65,8 +65,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147105.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "4"
+                    featureCharacter: 'O',
+                    zIndex: '4',
                 },
             },
             {
@@ -76,8 +76,8 @@ export const legendMultiFeaturesLayer = (props) => {
                     coordinates: [147106.0, 197908.0],
                 },
                 properties: {
-                    inzageGegevensTypeKarakterEnum: "B",
-                    zIndex: "5"
+                    featureCharacter: 'O',
+                    zIndex: '5',
                 },
             },
         ],
@@ -92,6 +92,10 @@ export const legendMultiFeaturesLayer = (props) => {
                     type: 'Point',
                     coordinates: [141000.0, 200908.0],
                 },
+                properties: {
+                    featureCharacter: 'B',
+                    zIndex: '5',
+                },
             },
         ],
     };
@@ -105,6 +109,10 @@ export const legendMultiFeaturesLayer = (props) => {
                     type: 'Point',
                     coordinates: [153055.0, 203908.0],
                 },
+                properties: {
+                    featureCharacter: 'A',
+                    zIndex: '5',
+                },
             },
         ],
     };
@@ -116,7 +124,7 @@ export const legendMultiFeaturesLayer = (props) => {
                 data-vl-size="10"
                 data-vl-border-color="#000"
                 data-vl-border-size="1"
-                data-vl-text-feature-attribute-name="inzageGegevensTypeKarakterEnum"
+                data-vl-text-feature-attribute-name="featureCharacter"
                 data-vl-text-size="bold 14px"
             ></vl-map-layer-circle-style>
             <vl-map-measure-action></vl-map-measure-action>
@@ -125,18 +133,22 @@ export const legendMultiFeaturesLayer = (props) => {
             <vl-map-layer-circle-style
                 data-vl-name="Beslissing"
                 data-vl-color="red"
-                data-vl-size="5"
+                data-vl-size="10"
                 data-vl-border-color="#000"
+                data-vl-text-feature-attribute-name="featureCharacter"
                 data-vl-border-size="1"
+                data-vl-text-size="bold 14px"
             ></vl-map-layer-circle-style>
             <vl-map-measure-action></vl-map-measure-action>
         </vl-map-features-layer>
         <vl-map-features-layer .features=${features3}>
             <vl-map-layer-circle-style
                 data-vl-color="green"
-                data-vl-size="5"
+                data-vl-size="10"
                 data-vl-border-color="#000"
+                data-vl-text-feature-attribute-name="featureCharacter"
                 data-vl-border-size="1"
+                data-vl-text-size="bold 14px"
             ></vl-map-layer-circle-style>
             <vl-map-measure-action></vl-map-measure-action>
         </vl-map-features-layer>
