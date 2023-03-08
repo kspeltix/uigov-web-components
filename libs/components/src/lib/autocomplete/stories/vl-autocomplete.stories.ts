@@ -3,7 +3,6 @@ import { autocompleteArgs, autocompleteArgTypes, complexItems } from './vl-autoc
 import { CAPTION_FORMAT, GROUP_BY } from '../vl-autocomplete.model';
 import { fetchDataFromApiCall, fetchDataFromMockedApiCall } from './vl-autocomplete.stories-util';
 import '../vl-autocomplete.component';
-import styles from './vl-autocomplete.stories.scss';
 
 export default {
     title: 'Components/autocomplete',
