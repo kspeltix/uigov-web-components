@@ -32,6 +32,9 @@ export class VlMapFeaturesLayer extends VlMapVectorLayer {
 
     constructor() {
         super();
+    }
+
+    init() {
         this._geoJSON = new OlGeoJSON();
         this._source = this.__createSource();
         this._layer = this._createLayer();
@@ -39,6 +42,7 @@ export class VlMapFeaturesLayer extends VlMapVectorLayer {
 
     async connectedCallback() {
         await super.connectedCallback();
+        this.init();
         this._autoZoomToExtent();
     }
 
