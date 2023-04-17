@@ -41,8 +41,8 @@ export class VlMapFeaturesLayer extends VlMapVectorLayer {
     }
 
     async connectedCallback() {
-        await super.connectedCallback();
         this.init();
+        await super.connectedCallback();
         this._autoZoomToExtent();
     }
 
