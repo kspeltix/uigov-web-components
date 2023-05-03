@@ -7,6 +7,10 @@ import OlStyle from 'ol/style/Style';
 import sinon from 'sinon';
 import '../../../vl-map';
 import './vl-map-features-layer';
+import { VlMapFeaturesLayer } from '@domg-wc/map';
+import GeoJSON from 'ol/format/GeoJSON';
+import { Point } from 'ol/geom';
+import { Feature } from 'ol';
 
 const featuresLayerFixture = async () =>
     fixture(html`
@@ -230,6 +234,28 @@ describe('vl-map-features-layer', () => {
             '{"type":"Feature","geometry":{"type":"Point","coordinates":[148055,197908]},"properties":null,"id":2}'
         );
         assert.lengthOf(layer.layer.getSource().getFeatures(), 2);
+    });
+
+    it('kan programmatorisch een OL feature collection toevoegen', async () => {
+        const map: any = await mapFixture();
+        const layer: VlMapFeaturesLayer = map.querySelector('vl-map-features-layer');
+        await map.ready;
+
+        const point1: Feature<Point> = new Feature({
+            id: 1,
+            name: 'My object',
+            geometry: new Point([149095.0, 199908.0]),
+        });
+
+        const point2: Feature<Point> = new Feature({
+            id: 2,
+            name: 'My object 2',
+            geometry: new Point([147004.0, 197907.0]),
+        });
+
+        assert.lengthOf(layer.layer.getSource().getFeatures(), 1);
+        layer.addOlFeatureCollection([point1, point2]);
+        assert.lengthOf(layer.layer.getSource().getFeatures(), 3);
     });
 
     it('kan programmatorisch feature toevoegen aan layer met cluster', async () => {

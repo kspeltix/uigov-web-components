@@ -4,6 +4,7 @@ import OlPoint from 'ol/geom/Point';
 import OlClusterSource from 'ol/source/Cluster';
 import OlVectorSource from 'ol/source/Vector';
 import { VlMapVectorLayer } from './vl-map-vector-layer';
+import { Feature } from 'ol';
 
 /**
  * VlMapFeaturesLayer
@@ -146,6 +147,16 @@ export class VlMapFeaturesLayer extends VlMapVectorLayer {
     clearFeatures() {
         if (this.__featuresSource) {
             this.__featuresSource.clear();
+            this._featuresChanged();
+        }
+    }
+
+    /**
+     * Voegt een Open Layers feature collection toe aan de kaartlaag
+     */
+    addOlFeatureCollection(olFeatureCollection: Array<Feature>) {
+        if (this.__featuresSource) {
+            this.__featuresSource.addFeatures(olFeatureCollection);
             this._featuresChanged();
         }
     }
