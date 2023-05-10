@@ -298,15 +298,15 @@ jobs:
           sed -i'.bak' "s,$toReplace,$newVersion," dist-build-apps-libs-and-storybook/apps/playground/index.html
       - name: prepare to publish
         run: |
-          mkdir to-publish
-          mv dist-build-apps-libs-and-storybook/apps/playground to-publish/playground/
-          mv dist-build-apps-libs-and-storybook/apps/storybook to-publish/storybook/
-          mv dist-build-apps-libs-and-storybook/libs/common/utilities/*.tgz to-publish/packages/
-          mv dist-build-apps-libs-and-storybook/libs/elements/*.tgz to-publish/packages/
-          mv dist-build-apps-libs-and-storybook/libs/components/*.tgz to-publish/packages/
-          mv dist-build-apps-libs-and-storybook/libs/sections/*.tgz to-publish/packages/
-          mv dist-build-apps-libs-and-storybook/libs/map/*.tgz to-publish/packages/
-          mv dist-build-apps-libs-and-storybook/libs/support/test-support/*.tgz to-publish/packages/
+          mkdir -p to-publish/packages
+          mv dist-build-apps-libs-and-storybook/apps/playground to-publish/playground
+          mv dist-build-apps-libs-and-storybook/apps/storybook to-publish/storybook
+          mv dist-build-apps-libs-and-storybook/libs/common/utilities/*.tgz to-publish/packages
+          mv dist-build-apps-libs-and-storybook/libs/elements/*.tgz to-publish/packages
+          mv dist-build-apps-libs-and-storybook/libs/components/*.tgz to-publish/packages
+          mv dist-build-apps-libs-and-storybook/libs/sections/*.tgz to-publish/packages
+          mv dist-build-apps-libs-and-storybook/libs/map/*.tgz to-publish/packages
+          mv dist-build-apps-libs-and-storybook/libs/support/test-support/*.tgz to-publish/packages
       - name: authenticate to acd-npm repository
         run: |
           echo "registry=https://repo.omgeving.vlaanderen.be/artifactory/api/npm/acd-npm/"  > ~/.npmrc
