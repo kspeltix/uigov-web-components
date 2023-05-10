@@ -273,6 +273,52 @@ jobs:
         run: |
           echo "registry=https://repo.omgeving.vlaanderen.be/artifactory/api/npm/local-npm/"  > ~/.npmrc
           echo "//repo.omgeving.vlaanderen.be/artifactory/api/npm/local-npm/:_authToken=${{ secrets.NPM_TOKEN_DOMG }}" > ~/.npmrc
+      - name: pack the artifacts
+        run: |
+          cd dist-build-apps-libs-and-storybook/libs
+          echo path: $(pwd)
+          cd ./common/utilities && npm version ${{ env.nextRelease_version }} && npm pack
+          cd ../../elements && npm version ${{ env.nextRelease_version }} && npm pack
+          cd ../components && npm version ${{ env.nextRelease_version }} && npm pack
+          cd ../sections && npm version ${{ env.nextRelease_version }} && npm pack
+          cd ../map && npm version ${{ env.nextRelease_version }} && npm pack
+          cd ../support/test-support && npm version ${{ env.nextRelease_version }} && npm pack
+      - name: archive common-utilities
+        uses: actions/upload-artifact@v3
+        with:
+            name: domg-wc-common-utilities-${{ env.nextRelease_version }}.tgz
+            path: dist-build-apps-libs-and-storybook/libs/common/utilities/*.tgz
+            retention-days: 30
+      - name: archive elements
+        uses: actions/upload-artifact@v3
+        with:
+            name: domg-wc-elements-${{ env.nextRelease_version }}.tgz
+            path: dist-build-apps-libs-and-storybook/libs/elements/*.tgz
+            retention-days: 30
+      - name: archive components
+        uses: actions/upload-artifact@v3
+        with:
+            name: domg-wc-components-${{ env.nextRelease_version }}.tgz
+            path: dist-build-apps-libs-and-storybook/libs/components/*.tgz
+            retention-days: 30
+      - name: archive sections
+        uses: actions/upload-artifact@v3
+        with:
+            name: domg-wc-sections-${{ env.nextRelease_version }}.tgz
+            path: dist-build-apps-libs-and-storybook/libs/sections/*.tgz
+            retention-days: 30
+      - name: archive map
+        uses: actions/upload-artifact@v3
+        with:
+            name: domg-wc-map-${{ env.nextRelease_version }}.tgz
+            path: dist-build-apps-libs-and-storybook/libs/map/*.tgz
+            retention-days: 30
+      - name: archive test-support
+        uses: actions/upload-artifact@v3
+        with:
+            name: domg-wc-test-support-${{ env.nextRelease_version }}.tgz
+            path: dist-build-apps-libs-and-storybook/libs/support/test-support/*.tgz
+            retention-days: 30
 #      - name: publish to npm
 #        run: |
 #          cd dist-build-apps-libs-and-storybook/libs
