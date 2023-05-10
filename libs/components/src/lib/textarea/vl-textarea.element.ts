@@ -57,7 +57,7 @@ export class VlTextarea extends vlFormValidationElement(BaseElementOfType(HTMLTe
             branding: false,
             powerpaste_word_import: 'clean',
             powerpaste_html_import: 'clean',
-            // content_css: hier zou CDN link moeten komen voor de styling die zich in .style/vl-textarea.scss bevindt,
+            content_css: 'http://localhost:8081/govflanders-style/dist/src/lib/custom/tinymce.css',
             verify_html: false,
             forced_root_block: 'p',
             body_class: 'vl-typography',
