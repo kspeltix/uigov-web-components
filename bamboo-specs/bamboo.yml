@@ -19,6 +19,7 @@ perform-all-unit-tests:
         force-clean-build: true
     - script:
         - echo 'perform-all-unit-tests'
+        - npm ci
         - npx nx run-many --all --target=test --parallel --maxParallel=4 --skip-nx-cache
 
 perform-all-web-tests:
