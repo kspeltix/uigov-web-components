@@ -19,7 +19,7 @@ perform-all-unit-tests:
         force-clean-build: true
     - script: |
         echo 'perform-all-unit-tests'
-        cd resources/ci
+        cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V
 
