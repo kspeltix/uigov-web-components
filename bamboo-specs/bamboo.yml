@@ -14,9 +14,9 @@ stages:
 perform-all-unit-tests:
   tasks:
     - checkout:
-      repository: uigov-web-components
-      path: uigov-web-components
-      force-clean-build: true
+        repository: uigov-web-components
+        path: uigov-web-components
+        force-clean-build: true
     - script:
         - echo 'perform-all-unit-tests'
         - npx nx run-many --all --target=test --parallel --maxParallel=4 --skip-nx-cache
