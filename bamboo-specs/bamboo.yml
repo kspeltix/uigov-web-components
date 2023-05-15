@@ -1,15 +1,15 @@
 version: 2
 plan:
-  project-key: ROCKET
-  name: Launch Rocket
-  key: LAUNCH
+  project-key: UIGOV
+  key: PLAN
+  name: My Plan
 
 stages:
-  - First Build Stage:
+  - Stage 1:
       jobs:
-        - Build Ship Server
+        - Job 1
 
-Build Ship Server:
+Job 1:
   tasks:
     - script:
-        - echo 'Hello world'
+        - echo 'Hello from YAML Specs'
