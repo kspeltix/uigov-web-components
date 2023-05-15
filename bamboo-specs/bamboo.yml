@@ -1,15 +1,27 @@
 version: 2
 plan:
   project-key: UIGOV
-  key: PLAN
-  name: My Plan
+  key: CUWC
+  name: ci-uigov-web-components
 
 stages:
   - Stage 1:
       jobs:
-        - Job 1
+        - perform-all-unit-tests
+        - perform-all-web-tests
+        - build-apps-libs-and-storybook
 
-Job 1:
+perform-all-unit-tests:
   tasks:
     - script:
-        - echo 'Hello from YAML Specs 2'
+        - echo 'perform-all-unit-tests'
+
+perform-all-web-tests:
+  tasks:
+    - script:
+        - echo 'perform-all-web-tests'
+
+build-apps-libs-and-storybook:
+  tasks:
+    - script:
+        - echo 'build-apps-libs-and-storybook'
