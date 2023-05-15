@@ -17,10 +17,11 @@ perform-all-unit-tests:
         repository: uigov-web-components
         path: uigov-web-components
         force-clean-build: true
-    - script:
-        - echo 'perform-all-unit-tests'
-        - npm ci
-        - npx nx run-many --all --target=test --parallel --maxParallel=4 --skip-nx-cache
+    - script: |
+        echo 'perform-all-unit-tests'
+        cd resources/ci
+        echo 'docker-compose up -V'
+        docker-compose up -V
 
 perform-all-web-tests:
   tasks:
