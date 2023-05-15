@@ -12,4 +12,4 @@ stages:
 Job 1:
   tasks:
     - script:
-        - echo 'Hello from YAML Specs'
+        - echo 'Hello from YAML Specs 2'
