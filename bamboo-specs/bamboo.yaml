@@ -1,9 +1,15 @@
-project:
-  key: DRAGON
-  plan:
-    key: SLAYER
-    name: Dragon Slayer Quest
+version: 2
+plan:
+  project-key: ROCKET
+  name: Launch Rocket
+  key: LAUNCH
+
 stages:
-  - jobs:
-      - scripts:
-          - echo 'Going to slay the red dragon, watch me'
+  - First Build Stage:
+      jobs:
+        - Build Ship Server
+
+Build Ship Server:
+  tasks:
+    - script:
+        - echo 'Hello world'
