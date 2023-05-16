@@ -9,7 +9,6 @@ stages:
       jobs:
         - perform-all-unit-tests
         - perform-all-web-tests
-        - build-apps-libs-and-storybook
 
 perform-all-unit-tests:
   requirements:
@@ -18,11 +17,15 @@ perform-all-unit-tests:
     - REMOTE_ONLY
   tasks:
     - checkout:
-        repository: uigov-web-components
-        path: uigov-web-components
-        force-clean-build: true
+        echo 'remove old git folder'
+        rm -rf .git
+        echo 'clone repo'
+        git clone --branch feature/UIG-2466-build https:/github.com/milieuinfo/uigov-web-components.git
+        git fetch --tags
+        cd uigov-web-components
     - script: |
         echo 'perform-all-unit-tests'
+        export BUILD_SCRIPT=uigov-web-components/resources/ci/perform-all-unit-tests.sh
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V
@@ -31,8 +34,3 @@ perform-all-web-tests:
   tasks:
     - script:
         - echo 'perform-all-web-tests'
-
-build-apps-libs-and-storybook:
-  tasks:
-    - script:
-        - echo 'build-apps-libs-and-storybook'
