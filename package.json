@@ -72,7 +72,7 @@
         "@typescript-eslint/parser": "5.55.0",
         "@web/dev-server-esbuild": "0.3.4",
         "@web/dev-server-rollup": "0.4.0",
-        "@web/test-runner": "0.15.1",
+        "@web/test-runner": "0.16.1",
         "axe-core": "^4.6.3",
         "babel-jest": "29.5.0",
         "conventional-changelog-conventionalcommits": "5.0.0",

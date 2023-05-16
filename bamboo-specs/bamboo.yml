@@ -5,7 +5,7 @@ plan:
   name: ci-uigov-web-components
 
 stages:
-  - Stage Build and Test:
+  - Build & Test Stage:
       jobs:
         - build-apps-libs-and-storybook
         - perform-all-unit-tests
@@ -62,5 +62,5 @@ perform-all-web-tests:
         export BUILD_SCRIPT=uigov-web-components/resources/ci/perform-all-web-tests.sh
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
-        docker-compose up -V --abort-on-container-exit --exit-code-from build
+        docker-compose up -V --no-sandbox --abort-on-container-exit --exit-code-from build
     - clean
