@@ -5,7 +5,7 @@ plan:
   name: ci-uigov-web-components
 
 stages:
-  - Stage 1:
+  - Stage Build and Test:
       jobs:
         - perform-all-unit-tests
         - perform-all-web-tests
@@ -17,18 +17,16 @@ perform-all-unit-tests:
     - REMOTE_ONLY
   tasks:
     - script: |
-        echo 'remove old git folder'
-        rm -rf .git
         echo 'clone repo'
         git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
         git fetch --tags
-        cd uigov-web-components
     - script: |
         echo 'perform-all-unit-tests'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/perform-all-unit-tests.sh
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V --abort-on-container-exit --exit-code-from build
+    - clean
 
 perform-all-web-tests:
   requirements:
@@ -40,10 +38,10 @@ perform-all-web-tests:
         echo 'clone repo'
         git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
         git fetch --tags
-        cd uigov-web-components
     - script: |
         echo 'perform-all-web-tests'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/perform-all-web-tests.sh
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V --abort-on-container-exit --exit-code-from build
+    - clean
