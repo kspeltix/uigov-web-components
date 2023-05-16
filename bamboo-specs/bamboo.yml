@@ -12,6 +12,10 @@ stages:
         - build-apps-libs-and-storybook
 
 perform-all-unit-tests:
+  requirements:
+    - Docker
+    - Git
+    - REMOTE_ONLY
   tasks:
     - checkout:
         repository: uigov-web-components
