@@ -7,8 +7,27 @@ plan:
 stages:
   - Stage Build and Test:
       jobs:
+        - build-apps-libs-and-storybook
         - perform-all-unit-tests
         - perform-all-web-tests
+
+build-apps-libs-and-storybook:
+  requirements:
+    - Docker
+    - Git
+    - REMOTE_ONLY
+  tasks:
+    - script: |
+        echo 'clone repo'
+        git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
+        git fetch --tags
+    - script: |
+        echo 'build-apps-libs-and-storybook'
+        export BUILD_SCRIPT=uigov-web-components/resources/ci/build-apps-libs-and-storybook.sh
+        cd uigov-web-components/resources/ci
+        echo 'docker-compose up -V'
+        docker-compose up -V --abort-on-container-exit --exit-code-from build
+    - clean
 
 perform-all-unit-tests:
   requirements:
