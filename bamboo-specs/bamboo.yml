@@ -5,7 +5,7 @@ plan:
   name: ci-uigov-web-components
 
 stages:
-  - Build & Test Stage:
+  - Build and Test Stage:
       jobs:
         - build-apps-libs-and-storybook
         - perform-all-unit-tests
