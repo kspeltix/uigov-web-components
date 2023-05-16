@@ -20,7 +20,7 @@ perform-all-unit-tests:
         echo 'remove old git folder'
         rm -rf .git
         echo 'clone repo'
-        git clone --branch feature/UIG-2466-build https:/github.com/milieuinfo/uigov-web-components.git
+        git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
         git fetch --tags
         cd uigov-web-components
     - script: |
