@@ -28,7 +28,7 @@ perform-all-unit-tests:
         export BUILD_SCRIPT=uigov-web-components/resources/ci/perform-all-unit-tests.sh
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
-        docker-compose up -V
+        docker-compose up -V --abort-on-container-exit --exit-code-from build
 
 perform-all-web-tests:
   requirements:
@@ -46,4 +46,4 @@ perform-all-web-tests:
         export BUILD_SCRIPT=uigov-web-components/resources/ci/perform-all-web-tests.sh
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
-        docker-compose up -V
+        docker-compose up -V --abort-on-container-exit --exit-code-from build
