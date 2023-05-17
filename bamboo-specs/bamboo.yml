@@ -5,6 +5,11 @@ plan:
   key: CUWC
   name: ci-uigov-web-components
 
+script: &checkout-script |
+  echo 'clone repo'
+  git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
+  git fetch --tags
+
 stages:
   - Build and Test Stage:
       jobs:
@@ -20,7 +25,7 @@ build-apps-libs-and-storybook:
     - REMOTE_ONLY
   tasks:
     - clean
-    - script: ./github-checkout.sh
+    - script: *checkout-script
     - script: |
         echo 'build-apps-libs-and-storybook'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/build-apps-libs-and-storybook.sh
@@ -35,7 +40,7 @@ perform-all-unit-tests:
     - REMOTE_ONLY
   tasks:
     - clean
-    - script: ./github-checkout.sh
+    - script: *checkout-script
     - script: |
         echo 'perform-all-unit-tests'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/perform-all-unit-tests.sh
@@ -50,7 +55,7 @@ perform-all-web-tests:
     - REMOTE_ONLY
   tasks:
     - clean
-    - script: ./github-checkout.sh
+    - script: *checkout-script
     - script: |
         echo 'perform-all-web-tests'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/perform-all-web-tests.sh
@@ -65,7 +70,7 @@ e2e-test-storybook-1:
     - REMOTE_ONLY
   tasks:
     - clean
-    - script: ./github-checkout.sh
+    - script: *checkout-script
     - script: |
         echo 'perform-all-web-tests'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/e2e-test-storybook.sh
