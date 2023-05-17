@@ -12,6 +12,7 @@ stages:
         - perform-all-unit-tests
         - perform-all-web-tests
         - e2e-test-storybook-1
+        - e2e-test-storybook-2
 
 build-apps-libs-and-storybook:
   requirements: &requirements
@@ -73,7 +74,7 @@ e2e-test-storybook-2:
     - clean
     - script: *checkout-script
     - script: |
-        echo 'e2e-test-storybook-1'
+        echo 'e2e-test-storybook-2'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/e2e-test-storybook-2.sh
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
