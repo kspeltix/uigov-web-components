@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# exit bij een fout
+# exit on error
 set -e
 
-echo 'RUNNING SCRIPT: perform-all-unit-tests.sh'
+echo 'RUNNING SCRIPT: build-apps-libs-and-storybook.sh'
 cd uigov-web-components
 echo "npm ci"
 npm ci
