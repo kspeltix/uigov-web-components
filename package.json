@@ -73,6 +73,7 @@
         "@web/dev-server-esbuild": "0.3.4",
         "@web/dev-server-rollup": "0.4.0",
         "@web/test-runner": "0.16.1",
+        "@web/test-runner-playwright": "0.10.0",
         "axe-core": "^4.6.3",
         "babel-jest": "29.5.0",
         "conventional-changelog-conventionalcommits": "5.0.0",
@@ -134,4 +135,3 @@
         "node": "18.15.0"
     }
 }
-
