@@ -18,6 +18,7 @@ build-apps-libs-and-storybook:
     - Git
     - REMOTE_ONLY
   tasks:
+    - clean
     - script: |
         echo 'clone repo'
         git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
@@ -28,7 +29,6 @@ build-apps-libs-and-storybook:
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V --abort-on-container-exit --exit-code-from build
-    - clean
 
 perform-all-unit-tests:
   requirements:
@@ -36,6 +36,7 @@ perform-all-unit-tests:
     - Git
     - REMOTE_ONLY
   tasks:
+    - clean
     - script: |
         echo 'clone repo'
         git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
@@ -46,7 +47,6 @@ perform-all-unit-tests:
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V --abort-on-container-exit --exit-code-from build
-    - clean
 
 perform-all-web-tests:
   requirements:
@@ -54,6 +54,7 @@ perform-all-web-tests:
     - Git
     - REMOTE_ONLY
   tasks:
+    - clean
     - script: |
         echo 'clone repo'
         git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
@@ -64,7 +65,6 @@ perform-all-web-tests:
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V --abort-on-container-exit --exit-code-from build
-    - clean
 
 e2e-test-storybook-1:
   requirements:
@@ -72,6 +72,7 @@ e2e-test-storybook-1:
     - Git
     - REMOTE_ONLY
   tasks:
+    - clean
     - script: |
         echo 'clone repo'
         git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
@@ -82,4 +83,3 @@ e2e-test-storybook-1:
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V --abort-on-container-exit --exit-code-from build
-    - clean
