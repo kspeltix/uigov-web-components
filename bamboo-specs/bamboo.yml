@@ -5,10 +5,6 @@ plan:
   key: CUWC
   name: ci-uigov-web-components
 
-script: &checkout-script |
-  echo 'clone repo'
-  git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
-  git fetch --tags
 
 stages:
   - Build and Test Stage:
@@ -25,7 +21,10 @@ build-apps-libs-and-storybook:
     - REMOTE_ONLY
   tasks:
     - clean
-    - script: *checkout-script
+    - script: &checkout-script |
+        echo 'clone repo'
+        git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
+        git fetch --tags
     - script: |
         echo 'build-apps-libs-and-storybook'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/build-apps-libs-and-storybook.sh
