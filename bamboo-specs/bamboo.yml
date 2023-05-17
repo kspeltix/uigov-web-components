@@ -20,7 +20,7 @@ build-apps-libs-and-storybook:
     - REMOTE_ONLY
   tasks:
     - clean
-    - script: github-checkout.sh
+    - script: ./github-checkout.sh
     - script: |
         echo 'build-apps-libs-and-storybook'
         export BUILD_SCRIPT=uigov-web-components/resources/ci/build-apps-libs-and-storybook.sh
