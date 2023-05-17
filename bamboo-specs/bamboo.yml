@@ -5,7 +5,6 @@ plan:
   key: CUWC
   name: ci-uigov-web-components
 
-
 stages:
   - Build and Test Stage:
       jobs:
@@ -15,7 +14,7 @@ stages:
         - e2e-test-storybook-1
 
 build-apps-libs-and-storybook:
-  requirements:
+  requirements: &requirements
     - Docker
     - Git
     - REMOTE_ONLY
@@ -33,10 +32,7 @@ build-apps-libs-and-storybook:
         docker-compose up -V --abort-on-container-exit --exit-code-from build
 
 perform-all-unit-tests:
-  requirements:
-    - Docker
-    - Git
-    - REMOTE_ONLY
+  requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
@@ -48,10 +44,7 @@ perform-all-unit-tests:
         docker-compose up -V --abort-on-container-exit --exit-code-from build
 
 perform-all-web-tests:
-  requirements:
-    - Docker
-    - Git
-    - REMOTE_ONLY
+  requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
@@ -63,16 +56,25 @@ perform-all-web-tests:
         docker-compose up -V --abort-on-container-exit --exit-code-from build
 
 e2e-test-storybook-1:
-  requirements:
-    - Docker
-    - Git
-    - REMOTE_ONLY
+  requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
     - script: |
-        echo 'perform-all-web-tests'
-        export BUILD_SCRIPT=uigov-web-components/resources/ci/e2e-test-storybook.sh
+        echo 'e2e-test-storybook-1'
+        export BUILD_SCRIPT=uigov-web-components/resources/ci/e2e-test-storybook-1.sh
+        cd uigov-web-components/resources/ci
+        echo 'docker-compose up -V'
+        docker-compose up -V --abort-on-container-exit --exit-code-from build
+
+e2e-test-storybook-2:
+  requirements: *requirements
+  tasks:
+    - clean
+    - script: *checkout-script
+    - script: |
+        echo 'e2e-test-storybook-1'
+        export BUILD_SCRIPT=uigov-web-components/resources/ci/e2e-test-storybook-2.sh
         cd uigov-web-components/resources/ci
         echo 'docker-compose up -V'
         docker-compose up -V --abort-on-container-exit --exit-code-from build
