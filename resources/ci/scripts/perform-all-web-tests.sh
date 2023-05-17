@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# exit bij een fout
+# exit on error
 set -e
 
 echo 'RUNNING SCRIPT: perform-all-web-tests.sh'
