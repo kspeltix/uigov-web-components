@@ -47,11 +47,8 @@ e2e-tests-storybook-1:
   tasks:
     - clean
     - script: *checkout-script
-    - script:
-        interpreter: /bin/bash
-        file: e2e-tests-storybook-docker.sh
-        argument: a
-        working-dir: uigov-web-components\resources\ci\scripts
+    - script: |
+        bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 1
 
 e2e-tests-storybook-2:
   requirements: *requirements
