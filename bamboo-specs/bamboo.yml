@@ -46,7 +46,7 @@ e2e-tests-storybook-1:
   requirements: *requirements
   tasks:
     - clean
-    - script: *checkout-script
+    - script: *checkout-script 
     - script: |
         export STORYBOOK_INDEX=1
         bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 1
