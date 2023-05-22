@@ -47,20 +47,27 @@ e2e-tests-storybook-1:
   tasks:
     - clean
     - script: *checkout-script
-    - script: |
-        #!/bin/bash
-        . ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 1
+    - script:
+        interpreter: /bin/bash
+        file: e2e-tests-storybook-docker.sh
+        argument: 1
+        working-dir: uigov-web-components\resources\ci\scripts
 
 e2e-tests-storybook-2:
   requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
-    - script: '. ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 2'
+    - script:
+        file: ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh
+        argument: 2
 
 e2e-tests-storybook-3:
   requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
-    - script: ". ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 3"
+    - script:
+        file: e2e-tests-storybook-docker.sh
+        argument: 3
+        working-dir: uigov-web-components\resources\ci\scripts
