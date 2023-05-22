@@ -50,7 +50,7 @@ e2e-tests-storybook-1:
     - script:
         interpreter: /bin/bash
         file: e2e-tests-storybook-docker.sh
-        argument: 1
+        argument: a
         working-dir: uigov-web-components\resources\ci\scripts
 
 e2e-tests-storybook-2:
@@ -60,7 +60,7 @@ e2e-tests-storybook-2:
     - script: *checkout-script
     - script:
         file: ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh
-        argument: 2
+        argument: 'b'
 
 e2e-tests-storybook-3:
   requirements: *requirements
@@ -69,5 +69,5 @@ e2e-tests-storybook-3:
     - script: *checkout-script
     - script:
         file: e2e-tests-storybook-docker.sh
-        argument: 3
+        argument: '3'
         working-dir: uigov-web-components\resources\ci\scripts
