@@ -26,11 +26,8 @@ build-apps-libs-and-storybook:
   tasks:
     - clean
     - script: &checkout-script |
-        echo 'bamboo.planRepository.branchDisplayName ${bamboo.planRepository.branchDisplayName}'
-        echo 'bamboo.planRepository.branch ${bamboo.planRepository.branch}'
-        echo 'bamboo.planRepository.repositoryUrl ${bamboo.planRepository.repositoryUrl}'
-        echo 'clone repo'
-        git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
+        echo 'git clone --branch ${bamboo.planRepository.branch} ${bamboo.planRepository.repositoryUrl}'
+        git clone --branch ${bamboo.planRepository.branch} ${bamboo.planRepository.repositoryUrl}
         git fetch --tags
     - script: bash ./uigov-web-components/resources/ci/scripts/build-apps-libs-and-storybook-docker.sh
   artifacts:
