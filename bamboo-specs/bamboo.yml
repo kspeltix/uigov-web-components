@@ -26,6 +26,7 @@ build-apps-libs-and-storybook:
   tasks:
     - clean
     - script: &checkout-script |
+        echo 'bamboo.planRepository.branchDisplayName ${bamboo.planRepository.branchDisplayName}'
         echo 'clone repo'
         git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
         git fetch --tags
