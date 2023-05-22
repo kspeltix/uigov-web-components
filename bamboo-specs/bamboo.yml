@@ -109,7 +109,6 @@ e2e-tests-storybook-4:
     - name: dist-e2e-tests-storybook-4
       location: uigov-web-components/dist
       pattern: '**/*.*'
-      shared: true
 
 e2e-tests-storybook-5:
   requirements: *requirements
@@ -120,7 +119,6 @@ e2e-tests-storybook-5:
   artifacts:
     - name: dist-e2e-tests-storybook-5
       location: uigov-web-components/dist
-      pattern: '**/*.*'
       shared: true
 
 e2e-tests-storybook-6:
@@ -132,5 +130,3 @@ e2e-tests-storybook-6:
   artifacts:
     - name: dist-e2e-tests-storybook-6
       location: uigov-web-components/dist
-      pattern: '**/*.*'
-      shared: true
