@@ -14,6 +14,9 @@ stages:
         - e2e-tests-storybook-1
         - e2e-tests-storybook-2
         - e2e-tests-storybook-3
+        - e2e-tests-storybook-4
+        - e2e-tests-storybook-5
+        - e2e-tests-storybook-6
 
 build-apps-libs-and-storybook:
   requirements: &requirements
@@ -26,37 +29,35 @@ build-apps-libs-and-storybook:
         echo 'clone repo'
         git clone --branch feature/UIG-2466-build https://github.com/milieuinfo/uigov-web-components.git
         git fetch --tags
-    - script: . ./uigov-web-components/resources/ci/scripts/build-apps-libs-and-storybook-docker.sh
+    - script: bash ./uigov-web-components/resources/ci/scripts/build-apps-libs-and-storybook-docker.sh
 
 perform-all-unit-tests:
   requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
-    - script: . ./uigov-web-components/resources/ci/scripts/perform-all-unit-tests-docker.sh
+    - script: bash ./uigov-web-components/resources/ci/scripts/perform-all-unit-tests-docker.sh
 
 perform-all-web-tests:
   requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
-    - script: . ./uigov-web-components/resources/ci/scripts/perform-all-web-tests-docker.sh
+    - script: bash ./uigov-web-components/resources/ci/scripts/perform-all-web-tests-docker.sh
 
 e2e-tests-storybook-1:
   requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
-    - script: |
-        bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 1
+    - script: bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 1
 
 e2e-tests-storybook-2:
   requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
-    - script: |
-        bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 2
+    - script: bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 2
 
 e2e-tests-storybook-3:
   requirements: *requirements
@@ -64,3 +65,24 @@ e2e-tests-storybook-3:
     - clean
     - script: *checkout-script
     - script: bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 3
+
+e2e-tests-storybook-4:
+  requirements: *requirements
+  tasks:
+    - clean
+    - script: *checkout-script
+    - script: bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 4
+
+e2e-tests-storybook-5:
+  requirements: *requirements
+  tasks:
+    - clean
+    - script: *checkout-script
+    - script: bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 5
+
+e2e-tests-storybook-6:
+  requirements: *requirements
+  tasks:
+    - clean
+    - script: *checkout-script
+    - script: bash ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 6
