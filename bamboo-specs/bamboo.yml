@@ -47,7 +47,9 @@ e2e-tests-storybook-1:
   tasks:
     - clean
     - script: *checkout-script
-    - script: `. ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 1`
+    - script: |
+        #!/bin/bash
+        . ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh 1
 
 e2e-tests-storybook-2:
   requirements: *requirements
