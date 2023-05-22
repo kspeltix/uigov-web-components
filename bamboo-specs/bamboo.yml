@@ -58,16 +58,15 @@ e2e-tests-storybook-2:
   tasks:
     - clean
     - script: *checkout-script
-    - script:
-        file: ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh
-        argument: 'b'
+    - script: |
+        export STORYBOOK_INDEX="2"
+        . ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh
 
 e2e-tests-storybook-3:
   requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
-    - script:
-        file: e2e-tests-storybook-docker.sh
-        argument: '3'
-        working-dir: uigov-web-components\resources\ci\scripts
+    - script: |
+        export STORYBOOK_INDEX=3
+        . ./uigov-web-components/resources/ci/scripts/e2e-tests-storybook-docker.sh
