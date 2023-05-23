@@ -36,17 +36,13 @@ build-apps-libs-and-storybook:
       pattern: '**/*.*'
       shared: true
 
+# de unit testen genereren (nog) geen rapport - er is dus geen artifact
 perform-all-unit-tests:
   requirements: *requirements
   tasks:
     - clean
     - script: *checkout-script
     - script: bash ./uigov-web-components/resources/ci/scripts/perform-all-unit-tests-docker.sh
-  artifacts:
-    - name: dist-perform-all-unit-tests
-      location: uigov-web-components/dist
-      pattern: '**/*.*'
-      shared: true
 
 perform-all-web-tests:
   requirements: *requirements
