@@ -65,6 +65,12 @@ const styles: CSSResult = css`
         transform: rotate(180deg);
     }
 
+    .vl-tab__pane[role='tabpanel']:focus {
+        outline: none;
+    }
+
+    /* Functional header styles */
+
     :host(.vl-tabs--within-functional-header) .vl-tabs {
         margin: 0 0 -1.5rem 0;
         border: 0;
