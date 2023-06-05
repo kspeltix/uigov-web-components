@@ -11,6 +11,7 @@ import {
     resetStyle,
     typographyStyle as commonTypographyStyle,
     visibilityStyle,
+    backgroundStyle,
 } from '@domg/govflanders-style/common';
 
 const commonStyles: CSSResult[] = [
@@ -23,6 +24,7 @@ const commonStyles: CSSResult[] = [
     layoutStyle,
     commonTypographyStyle,
     visibilityStyle,
+    backgroundStyle,
 ];
 
 // @govflanders component styles
